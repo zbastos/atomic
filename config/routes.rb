@@ -26,6 +26,16 @@ Rails.application.routes.draw do
     resources :terms,       only: [:new, :create, :destroy]
   end
 
+  namespace 'log' do
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+    end
+  end
+
+  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
+  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  get "/sign_up" => "users#new", as: "sign_up"
+
   get '/news', to: 'welcome#news'
   get '/log', to: 'welcome#log'
   get '/about', to: 'welcome#about'

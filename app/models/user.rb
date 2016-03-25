@@ -33,4 +33,7 @@ class User < ActiveRecord::Base
   def self.auth_email(auth)
       auth['info']['email'] || "#{auth['uid']}@#{auth['provider']}.com"
   end
+
+  has_many :posts
+  has_many :comments
 end
