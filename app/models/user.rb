@@ -8,8 +8,8 @@ include Clearance::User
   has_many :terms
   has_many :roles, through: :term
 
-  has_many :posts
-  has_many :comments
+  has_many :posts, class_name: 'Log::Post'
+  has_many :comments, class_name: 'Log::Comments'
 
   has_many :articles
 

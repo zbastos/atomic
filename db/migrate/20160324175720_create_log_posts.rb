@@ -4,6 +4,8 @@ class CreateLogPosts < ActiveRecord::Migration
       t.string :title
       t.text :body
 
+      t.references :user, null: false
+
       t.timestamps null: false
     end
   end
