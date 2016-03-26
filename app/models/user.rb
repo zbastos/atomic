@@ -11,6 +11,8 @@ include Clearance::User
   has_many :posts
   has_many :comments
 
+  has_many :articles
+
   validates :account_number, presence: true, length: { maximum: 10 },
     numericality: { only_integer: true }
   validates :student_id, presence: true, length: { maximum: 10 }

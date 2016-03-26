@@ -9,8 +9,6 @@ class Log::PostsController < ApplicationController
   end
 
   def new
-    # TODO
-    # @post = current_user.posts.build(post_params)
     @post = Log::Post.new
   end
 
