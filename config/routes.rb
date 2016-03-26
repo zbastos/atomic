@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :editions, only: [:index, :new, :create, :destroy]
   end
 
-  resources :articles, path: 'news'
+  resources :articles, path: 'news', except: [:show]
 
   get '/news', to: 'welcome#news'
   get '/log', to: 'welcome#log'
