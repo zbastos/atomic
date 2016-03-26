@@ -9,6 +9,7 @@ gem 'google-analytics-rails', '1.1.0'
 gem 'puma'
 gem 'uglifier', '>= 1.3.0'
 gem 'retina_tag'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # landing page gems
 gem 'bootstrap-sass'

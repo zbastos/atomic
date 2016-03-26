@@ -11,6 +11,8 @@ table
         | Body
       th
         | Preview
+      th
+        | #tags
       th[colspan="3"]
   tbody
     - @posts.each do |post|
@@ -21,6 +23,8 @@ table
           = post.body
         td
           = image_tag post.poster.url(:medium)
+        td
+          = post.tag_list
         td
           = link_to 'Show', log_post_path(post)
         td
