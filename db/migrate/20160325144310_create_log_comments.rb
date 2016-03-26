@@ -4,7 +4,7 @@ class CreateLogComments < ActiveRecord::Migration
       t.text :body
 
       t.references :user
-      t.references :post, index: true, foreign_key: true
+      t.references :log_post, index: true, foreign_key: true
 
       t.timestamps null: false
     end

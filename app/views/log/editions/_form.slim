@@ -1,0 +1,19 @@
+= form_for @edition, html: { multipart: true } do |form|
+  - if @edition.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@edition.errors.count, "error")
+        |  prohibited this log edition from being saved:
+      ul
+        - @edition.errors.full_messages.each do |message|
+          li
+            = message
+
+  p
+    = form.label :date
+
+    = select_date Date.today, prefix: :date
+  p
+    = form.file_field :document
+  p
+    = form.submit

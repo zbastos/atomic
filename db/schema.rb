@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419210057) do
+ActiveRecord::Schema.define(version: 20170306180325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,13 +40,41 @@ ActiveRecord::Schema.define(version: 20170419210057) do
   add_index "activities", ["department_id"], name: "index_activities_on_department_id", using: :btree
 
   create_table "boards", force: :cascade do |t|
-    t.integer  "year"
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "departments", force: :cascade do |t|
     t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "log_comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "log_post_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "log_comments", ["log_post_id"], name: "index_log_comments_on_log_post_id", using: :btree
+
+  create_table "log_editions", force: :cascade do |t|
+    t.date     "date"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+  end
+
+  create_table "log_posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,31 +105,34 @@ ActiveRecord::Schema.define(version: 20170419210057) do
   create_table "registrations", force: :cascade do |t|
     t.integer  "activity_id"
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "confirmed",   default: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "roles", force: :cascade do |t|
     t.string   "title"
-    t.integer  "department_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "roles", ["department_id"], name: "index_roles_on_department_id", using: :btree
-
-  create_table "terms", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
-    t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "terms", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "board_id"
+    t.integer  "department_id"
+    t.integer  "role_id"
+    t.integer  "user_id"
+  end
+
+  add_index "terms", ["board_id"], name: "index_terms_on_board_id", using: :btree
+  add_index "terms", ["department_id"], name: "index_terms_on_department_id", using: :btree
+  add_index "terms", ["role_id"], name: "index_terms_on_role_id", using: :btree
+  add_index "terms", ["user_id"], name: "index_terms_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",             limit: 75
     t.string   "phone_number",     limit: 15, default: ""
+    t.string   "type"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.string   "email"
@@ -115,5 +146,8 @@ ActiveRecord::Schema.define(version: 20170419210057) do
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
+  add_foreign_key "activities", "activities"
+  add_foreign_key "activities", "departments"
+  add_foreign_key "log_comments", "log_posts"
   add_foreign_key "users", "members"
 end
