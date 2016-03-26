@@ -22,8 +22,6 @@ table
         td
           = image_tag article.image.url(:medium)
         td
-          = link_to 'Show', article_path(article)
-        td
           = link_to 'Edit', edit_article_path(article)
         td
           = link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }

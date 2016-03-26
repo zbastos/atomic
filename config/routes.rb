@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :editions, only: [:index, :new, :create, :destroy]
   end
 
-  resources :articles, path: 'news'
+  resources :articles, path: 'news', except: [:show]
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
