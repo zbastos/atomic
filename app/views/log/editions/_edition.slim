@@ -1,0 +1,15 @@
+p#notice
+  = notice
+p
+  strong
+    | Date
+  = edition.date
+p
+  strong
+    | File:
+  = link_to 'Document', edition.document.url
+
+= link_to 'Destroy', log_edition_path(edition), method: :delete, data: { confirm: 'Are you sure?' }
+|  |
+= link_to 'Back', log_editions_path
+

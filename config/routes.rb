@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments, only: [:create, :destroy]
     end
+
+    resources :editions, only: [:index, :new, :create, :destroy]
   end
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
