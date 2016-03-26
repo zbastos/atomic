@@ -9,6 +9,8 @@ table
         | Title
       th
         | Body
+      th
+        | Preview
       th[colspan="3"]
   tbody
     - @posts.each do |post|
@@ -17,6 +19,8 @@ table
           = post.title
         td
           = post.body
+        td
+          = image_tag post.poster.url(:medium)
         td
           = link_to 'Show', log_post_path(post)
         td

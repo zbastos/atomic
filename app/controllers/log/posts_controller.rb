@@ -47,6 +47,6 @@ class Log::PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:log_post).permit(:title, :body)
+      params.require(:log_post).permit(:title, :body, :poster)
     end
 end
