@@ -39,4 +39,9 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+  # Paperclip location
+  # If this becomes an issue because of different install, we should move it
+  # to an environment variable and have something like a virtual env set up.
+  Paperclip.options[:command_path] = 'usr/local/bin'
 end

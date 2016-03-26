@@ -6,7 +6,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'jquery-rails'
 gem 'google-analytics-rails', '1.1.0'
-
 gem 'puma'
 gem 'uglifier', '>= 1.3.0'
 gem 'retina_tag'
