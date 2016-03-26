@@ -36,8 +36,6 @@ Rails.application.routes.draw do
 
   resources :articles, path: 'news', except: [:show]
 
-  get '/news', to: 'welcome#news'
-  get '/log', to: 'welcome#log'
   get '/about', to: 'welcome#about'
   get '/team', to: 'welcome#team'
   get '/contact', to: 'welcome#contact'
@@ -47,4 +45,6 @@ Rails.application.routes.draw do
   get '/uminhocup', to: redirect('https://cesium.typeform.com/to/mcF2UI')
   get '/news' => 'welcome#news'
   get '/log' => 'welcome#log'
+  get '/welcome/news' => 'welcome#news'
+  get '/welcome/log' => 'welcome#log'
 end
