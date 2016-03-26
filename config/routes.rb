@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     resources :editions, only: [:index, :new, :create, :destroy]
   end
 
+  resources :articles, path: 'news'
+
   get '/news', to: 'welcome#news'
   get '/log', to: 'welcome#log'
   get '/about', to: 'welcome#about'
@@ -43,4 +45,6 @@ Rails.application.routes.draw do
   get '/log', to: 'welcome#log'
   get '/partners', to: 'welcome#partners'
   get '/uminhocup', to: redirect('https://cesium.typeform.com/to/mcF2UI')
+  get '/news' => 'welcome#news'
+  get '/log' => 'welcome#log'
 end

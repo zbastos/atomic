@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20170306180325) do
   add_index "activities", ["activity_id"], name: "index_activities_on_activity_id", using: :btree
   add_index "activities", ["department_id"], name: "index_activities_on_department_id", using: :btree
 
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "boards", force: :cascade do |t|
     t.date     "start_date"
     t.date     "end_date"
