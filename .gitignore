@@ -16,6 +16,9 @@
 !/log/.keep
 /tmp
 
+# Ignore attachments
+/public/system
+
 # Vim
 *~
 [._]*.s[a-w][a-z]
