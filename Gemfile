@@ -13,7 +13,9 @@ gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
+
 gem 'paperclip'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # landing page gems
 gem 'bootstrap-sass'

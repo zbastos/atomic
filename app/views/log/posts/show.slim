@@ -10,6 +10,10 @@ p
   = @post.body
 p
   = image_tag @post.poster.url(:large)
+p
+  strong
+    | #tags:
+  = @post.tag_list
 
 = link_to 'Edit', edit_log_post_path(@post)
 |  |

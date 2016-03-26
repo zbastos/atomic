@@ -2,6 +2,8 @@ class Log::Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
 
+  acts_as_taggable
+
   validates :title, presence: true, length: { maximum: 100 }
   validates :body,  presence: true
 

@@ -17,9 +17,13 @@
     br
     = f.text_field :body
   .field
-      = f.label :poster
-      br
-      = f.file_field :poster
+    = f.label :tag_list
+    br
+    = f.text_field :tag_list
+  .field
+    = f.label :poster
+    br
+    = f.file_field :poster
 
   .actions
     = f.submit

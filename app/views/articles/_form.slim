@@ -16,11 +16,18 @@
     = f.label :body
     br
     = f.text_field :body
-
   .field
-      = f.label :image
-      br
-      = f.file_field :image
+    = f.label :tag_list
+    br
+    = f.text_field :tag_list
+  .field
+    = f.label :category_list
+    br
+    = f.text_field :category_list
+  .field
+    = f.label :image
+    br
+    = f.file_field :image
 
   .actions
     = f.submit
