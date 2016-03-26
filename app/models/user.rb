@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
       auth['info']['email'] || "#{auth['uid']}@#{auth['provider']}.com"
   end
 
-  has_many :posts
-  has_many :comments
+  has_many :posts, class_name: 'Log::Post'
+  has_many :comments, class_name: 'Log::Comments'
   has_many :articles
 end
