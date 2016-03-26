@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
 
-  get '/news' => 'welcome#news'
-  get '/log' => 'welcome#log'
+  get '/welcome/news' => 'welcome#news'
+  get '/welcome/log' => 'welcome#log'
 end
