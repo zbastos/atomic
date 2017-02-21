@@ -57,3 +57,29 @@ namespace :deploy do
   end
 
 end
+
+namespace :rake do
+  namespace :db do
+    %w[create migrate reset rollback seed setup].each do |command|
+      desc "Rake db:#{command}"
+      task command do
+        on roles(:app), except: {no_release: true} do
+          run "cd #{deploy_to}/current"
+          run "bundle exec rake db:#{ENV['task']} RAILS_ENV=#{rails_env}"
+        end
+      end
+    end
+  end
+
+  namespace :assets do
+    %w[precompile clean].each do |command|
+      desc "Rake assets:#{command}"
+      task command do
+        on roles(:app), except: {no_release: true} do
+          run "cd #{deploy_to}/current"
+          run "bundle exec rake assets:#{ENV['task']} RAILS_ENV=#{rails_env}"
+        end
+      end
+    end
+  end
+end
