@@ -51,3 +51,13 @@ To run a rails console on the staging app run:
 If you wish to run a rails console on the production app run:
 
 `bin/console production`
+
+## Remote Rake Task
+
+To run a rake task on the staging app run:
+
+`bin/rrake [TASK] staging`
+
+If you wish to run a task on the production app run:
+
+`bin/rrake [TASK] production`

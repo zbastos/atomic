@@ -1,0 +1,3 @@
+TASK=${1:-}
+ENVIRONMENT=${2:-staging}
+bundle exec cap $ENVIRONMENT rake:$TASK
