@@ -36,38 +36,6 @@ ActiveRecord::Schema.define(version: 20160326131843) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "log_comments", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "log_comments", ["post_id"], name: "index_log_comments_on_post_id"
-
-  create_table "log_editions", force: :cascade do |t|
-    t.date     "date"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "document_file_name"
-    t.string   "document_content_type"
-    t.integer  "document_file_size"
-    t.datetime "document_updated_at"
-  end
-
-  create_table "log_posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "user_id",             null: false
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "poster_file_name"
-    t.string   "poster_content_type"
-    t.integer  "poster_file_size"
-    t.datetime "poster_updated_at"
-  end
-
   create_table "payments", force: :cascade do |t|
     t.date     "date"
     t.decimal  "value",      precision: 8, scale: 2

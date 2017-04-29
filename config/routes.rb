@@ -12,14 +12,6 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  namespace 'log' do
-    resources :posts do
-      resources :comments, only: [:create, :destroy]
-    end
-
-    resources :editions, only: [:index, :new, :create, :destroy]
-  end
-
   resources :articles, path: 'news', except: [:show]
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
@@ -27,5 +19,4 @@ Rails.application.routes.draw do
   get "/sign_up" => "users#new", as: "sign_up"
 
   get '/welcome/news' => 'welcome#news'
-  get '/welcome/log' => 'welcome#log'
 end
