@@ -26,14 +26,6 @@ Rails.application.routes.draw do
     resources :terms,       only: [:new, :create, :destroy]
   end
 
-  namespace 'log' do
-    resources :posts do
-      resources :comments, only: [:create, :destroy]
-    end
-
-    resources :editions, only: [:index, :new, :create, :destroy]
-  end
-
   resources :articles, path: 'news', except: [:show]
 
   get '/about', to: 'welcome#about'
@@ -46,5 +38,4 @@ Rails.application.routes.draw do
   get '/news' => 'welcome#news'
   get '/log' => 'welcome#log'
   get '/welcome/news' => 'welcome#news'
-  get '/welcome/log' => 'welcome#log'
 end
