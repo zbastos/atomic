@@ -31,5 +31,12 @@ module Atomic
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    Raven.configure do |config|
+      config.dsn = 'https://d599c952cfce4b5c984275d27d3e5d50:44f0eab66ad341f38684696c58b0768f@sentry.io/236023'
+    end
+
+    # Configure sensitive parameters which will be filtered from the log file.
+    config.filter_parameters += [:password]
   end
 end

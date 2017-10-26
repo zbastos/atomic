@@ -29,6 +29,7 @@ gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 
 gem 'cancancan'
+gem 'sentry-raven'
 
 gem 'dotenv-rails'
 
