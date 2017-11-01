@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013085029) do
+ActiveRecord::Schema.define(version: 20171031225933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 20171013085029) do
     t.string   "student_id",     default: ""
     t.boolean  "is_buddy"
     t.boolean  "activity_admin", default: false, null: false
+  end
+
+  create_table "partners", force: :cascade do |t|
+    t.string   "name",              limit: 75
+    t.string   "benefits"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "payments", force: :cascade do |t|

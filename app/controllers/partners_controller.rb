@@ -53,6 +53,6 @@ class PartnersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def partner_params
-      params[:partner]
+      params.require(:partner).permit(:name, :benefits, :logo)
     end
 end
