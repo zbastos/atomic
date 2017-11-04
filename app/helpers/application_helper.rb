@@ -1,5 +1,3 @@
-require 'redcarpet/render_strip'
-
 module ApplicationHelper
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -19,11 +17,5 @@ module ApplicationHelper
       disable_indented_code_blocks: true,
       autolink: true
     }
-  end
-
-  def to_plaintext(markdown)
-    Redcarpet::Markdown
-      .new(Redcarpet::Render::StripDown)
-      .render(markdown)
   end
 end
