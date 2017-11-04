@@ -1,7 +1,7 @@
 = render partial: 'partners/partners_breadcrumb'
 
 .divide40
-.container.blog-left-img
+.container
 
   = link_to 'Criar Parceria', new_partner_path,
     class: "btn btn-lg border-theme"
@@ -15,13 +15,14 @@
     .row
       = link_to 'Editar', edit_partner_path(partner),
         class: "btn btn-lg border-theme"
-      .col-md-3.col-sm-3
+      .col-md-2.col-sm-12
         = link_to image_tag(partner.logo.url, class: "img-responsive activity-poster"), partner.link, target: "_blank"
 
-      .col-md-5.col-sm-5
+      .col-md-10.col-sm-12
         h4.partner-name
           = link_to partner.name, partner.link, target: "_blank"
         ul.partner-advantages
-          = to_markdown(partner.benefits)
+          li.partners-list-item
+            = to_markdown(partner.benefits)
     .divide60
-divide40
+.divide40
