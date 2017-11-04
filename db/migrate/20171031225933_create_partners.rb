@@ -4,6 +4,7 @@ class CreatePartners < ActiveRecord::Migration
       t.string :name, limit: 75
       t.string :benefits
       t.attachment :logo
+      t.string :link
 
       t.timestamps null: false
     end

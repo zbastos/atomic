@@ -2,8 +2,7 @@ class PartnersController < ApplicationController
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@partners = Partner.all
-    @partners = Partner.paginate(page: params[:page], per_page: 5)
+    @partners = Partner.all
   end
 
   def show
@@ -20,15 +19,17 @@ class PartnersController < ApplicationController
     @partner = Partner.new(partner_params)
 
     if @partner.save
-      redirect_to @partner, notice: 'Partner was successfully created.'
+      redirect_to action: "index"
     else
       render :new
     end
   end
 
   def update
+    @partner = Partner.find(params[:id])
+
     if @partner.update(partner_params)
-      redirect_to @partner, notice: 'Partner was successfully updated.'
+      redirect_to @partner
     else
       render :edit
     end
@@ -45,6 +46,6 @@ class PartnersController < ApplicationController
     end
 
     def partner_params
-      params.require(:partner).permit(:name, :benefits, :logo)
+      params.require(:partner).permit(:name, :benefits, :logo, :link)
     end
 end

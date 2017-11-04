@@ -6,18 +6,24 @@
         li
           = msg
 
-  = form.label :name,
+  = form.label :nome,
     class: "partner-form-label"
   br
   = form.text_field :name,
     class: "partner-form-field"
   br
-  = form.label :benefits,
+  = form.label :vantagens,
     class: "partner-form-label"
   br
   = form.text_area :benefits,
     class: "partner-form-field"
-
+  br
+  = form.label :link,
+    class: "partner-form-label"
+  br
+  = form.text_area :link,
+    class: "partner-form-field"
+  br
   = form.label :logo,
     class: "partner-form-label"
   br

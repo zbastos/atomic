@@ -35,13 +35,12 @@ Rails.application.routes.draw do
     resources :terms,       only: [:new, :create, :destroy]
   end
 
-  resources :partners,      only: [:index, :show, :new, :edit, :create, :destroy]
+  resources :partners,      only: [:index, :new, :edit, :create, :update, :destroy]
 
   get '/log', to: 'welcome#log'
   get '/about', to: 'welcome#about'
   get '/team', to: 'welcome#team'
   get '/contact', to: 'welcome#contact'
   get '/log', to: 'welcome#log'
-  #get '/partners', to: 'welcome#partners'
   get '/uminhocup', to: redirect('https://cesium.typeform.com/to/mcF2UI')
 end

@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20171031225933) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "link"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
