@@ -1,19 +1,23 @@
 = render partial: 'partners/partners_breadcrumb'
 
-
 .divide40
 .container.blog-left-img
 
-  - if can_create?
-    = link_to 'Criar Parceria', new_partner_path,
-      class: "btn btn-lg border-theme"
-    hr
+  = link_to 'Criar Parceria', new_partner_path,
+    class: "btn btn-lg border-theme"
+  hr
 
   - if @partners.empty?
     h4 Parcerias não existentes
 
+  existentes
   - @partners.each do |partner|
     .row
+      = link_to 'Editar Parceria', edit_partner_path,
+        class: "btn btn-lg border-theme"
+      | \
+      = link_to 'Parceria', partner, method: :destroy, data: {confirm: 'Tem a certeza?'},
+        class: "btn btn-lg border-theme"
       .col-md-2.col-sm-12
         = link_to image_tag(partner.logo.url, class: "img-responsive activity-poster"), partner.link, target: "_blank"
 
@@ -21,6 +25,6 @@
         h4.partner-name
           = link_to partner.name, partner.link, target: "_blank"
         ul.partner-advantages
-          = partner.benefits
+          = to_markdown(partner.benefits)
     .divide60
-.divide40
+divide40
