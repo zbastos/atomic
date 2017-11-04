@@ -1,0 +1,23 @@
+= render partial: 'partners/partners_breadcrumb'
+
+.navbar.navbar-default
+  .container
+    ul.nav.navbar-nav
+      li = link_to "Próximas atividades", partners_path(show: "next")
+      li = link_to "Atividades realizadas", partners_path(show: "previous")
+
+.divide60
+.container.blog-left-img
+
+  - if can_create?
+    = link_to 'Criar Parceria', new_partner_path,
+      class: "btn btn-lg border-theme"
+    hr
+
+  - if @partners.empty?
+    h4 Parcerias não existentes
+  - @partners.each do |partner|
+    p = partner.name
+
+  = will_paginate @partners, renderer: BootstrapPagination::Rails
+

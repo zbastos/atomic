@@ -2,7 +2,8 @@ class PartnersController < ApplicationController
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
 
   def index
-    @partners = Partner.all
+    #@partners = Partner.all
+    @partners = Partner.paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -34,8 +35,8 @@ class PartnersController < ApplicationController
   end
 
   def destroy
-    @partner.destroy
-    redirect_to partners_url, notice: 'Partner was successfully destroyed.'
+    Partner.find(params[:id]).try(:destroy)
+    redirect_to partners_url
   end
 
   private

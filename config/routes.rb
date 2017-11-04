@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     resources :terms,       only: [:new, :create, :destroy]
   end
 
-  resources :partners
+  resources :partners,      only: [:index, :show, :new, :edit, :create, :destroy]
 
   get '/log', to: 'welcome#log'
   get '/about', to: 'welcome#about'
