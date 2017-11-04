@@ -1,8 +1,9 @@
 = render partial: 'partners/partners_breadcrumb'
 
+
 .divide40
 .container.blog-left-img
-  
+
   - if can_create?
     = link_to 'Criar Parceria', new_partner_path,
       class: "btn btn-lg border-theme"
