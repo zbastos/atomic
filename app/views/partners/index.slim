@@ -15,10 +15,10 @@
     .row
       = link_to 'Editar', edit_partner_path(partner),
         class: "btn btn-lg border-theme"
-      .col-md-2.col-sm-12
+      .col-md-3.col-sm-3
         = link_to image_tag(partner.logo.url, class: "img-responsive activity-poster"), partner.link, target: "_blank"
 
-      .col-md-10.col-sm-12
+      .col-md-5.col-sm-5
         h4.partner-name
           = link_to partner.name, partner.link, target: "_blank"
         ul.partner-advantages
