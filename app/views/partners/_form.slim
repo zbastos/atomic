@@ -34,7 +34,7 @@
   .submit-field
     = form.submit class: "btn btn-lg btn-update border-theme"
     - if @partner.id != nil
-      = link_to 'Cancel', partner_path(@partner),
+      = link_to 'Cancel', partners_path,
         data: { confirm: 'You will lose all modifications. Are you sure?' },
         class: "btn btn-lg border-theme"
       = link_to 'Destroy', :partner, method: :delete,

@@ -5,9 +5,6 @@ class PartnersController < ApplicationController
     @partners = Partner.all
   end
 
-  def show
-  end
-
   def new
     @partner = Partner.new
   end
@@ -19,7 +16,8 @@ class PartnersController < ApplicationController
     @partner = Partner.new(partner_params)
 
     if @partner.save
-      redirect_to action: "index"
+      #redirect_to @partner
+      redirect_to partners_url
     else
       render :new
     end
@@ -29,7 +27,7 @@ class PartnersController < ApplicationController
     @partner = Partner.find(params[:id])
 
     if @partner.update(partner_params)
-      redirect_to @partner
+      redirect_to partners_url
     else
       render :edit
     end
