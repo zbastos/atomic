@@ -28,7 +28,16 @@
           = link_to 'CONTACTOS', contact_path
         - if current_user
           li
-            = link_to 'Log Out', sign_out_path, method: :delete
+            .dropdown.show
+              = link_to image_tag(current_user.image, class: 'img-circle navbar-user'), '#', 
+                 id: 'dropdownMenuLink', class: 'btn dropdown-toggle navbar-signout', aria: {haspopup: 'true'}, data: {toggle: 'dropdown'}
+              ul.dropdown-menu aria-labelledby='dropdownMenuLink'
+                li
+                  = link_to 'Meu Perfil', user_path(current_user), class: 'dropdown-item'
+                li
+                  .dropdown-divider
+                li
+                  = link_to 'Sign Out', sign_out_path, class: 'dropdown-item', method: :delete
         - else
           li
             = link_to 'Log In', sign_in_path,
